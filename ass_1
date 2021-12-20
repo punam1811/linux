@@ -1,1 +1,216 @@
 
+
+Name:- Punam wagh. Assingment 1
+
+Q:     what  should you use Git ?
+
+Ans:  Git is a fast, scalable, distributed revision control system with an unusually rich command set that provides both high-level operations and full access to internals.
+
+Q:      what is benfit of distributed version control ?
+
+Ans: A distributed version control system (DVCS) brings a local copy of the complete repository to every team member's computer, so they can commit, branch, and merge locally. The server doesn't have to store a physical file for each branch — it just needs the differences between each commit.  
+
+Q:      what is the command for installing Git on your Linux system ? 
+Ans : Install Git on Linux
+Installing on Linux
+If you want to install the basic Git tools on Linux via a binary installer, you can generally do so through the package management tool that comes with your distribution. If you’re on Fedora (or any closely-related RPM-based distribution, such as RHEL or CentOS), you can use dnf:
+$ sudo dnf install git-all
+If you’re on a Debian-based distribution, such as Ubuntu, try apt:
+$ sudo apt install git-all
+For more options, there are instructions for installing on several different Unix distributions on the Git website, at https://git-scm.com/download/linux.
+Installing on macOS
+There are several ways to install Git on a Mac. The easiest is probably to install the Xcode Command Line Tools. On Mavericks (10.9) or above you can do this simply by trying to run git from the Terminal the very first time.
+$ git --version
+If you don’t have it installed already, it will prompt you to install it.
+If you want a more up to date version, you can also install it via a binary installer. A macOS Git installer is maintained and available for download at the Git website, at https://git-scm.com/download/mac.
+
+Q:     why should you set up user.name and user.email configuration? Howdo you    set  them up?
+Ans:Git is a distributed version control system that’s being used by most software teams today. The first thing you should do after installing Git on your system is to configure your git username and email address. Git associate your identity with every commit you make.
+ Git allows you to set a global and per-project username and email address. You can set or change your git identity using the git config command. Changes only affect future commits. The name and email associated with the commits you made prior to the change are not affected.
+  The global git username and password are associated with commits on all repositories on your system that don’t have repository-specific values.
+To set your global commit name and email address run the git config command with the --global option:
+$ git config --global user.name "Your Name"
+$ git config --global user.email "youremail@yourdomain.com"
+Q: can you define working diarectory ,staging ,repository and remote repository ? 
+Ans : working Directory- The current working directory is the directory in which the user is currently working in. Each time you interact with your command prompt, you are working within a directory. By default, when you log into your Linux system, your current working directory is set to your home directory.
+How do I create a directory in git?
+1. Start a new git repository
+2. Create a directory to contain the project.
+3. Go into the new directory.
+4. Type git init .
+5. Write some code.
+6. Type git add to add the files (see the typical use page).
+7. Type git commit .
+staging -A staging step in git allows you to continue making changes to the working directory, and when you decide you wanna interact with version control, it allows you to record changes in small commits. ... Separating staging and committing, you get the chance to easily customize what goes into a commit.
+Suppose you have edited three files (a.html, b.html, and c.html). After that you need to commit all the changes so that the changes to a.html and b.html were a single commit, while the changes to c.html were not logically associated with the first two files and were done in a separate commit.
+In theory you can do the following:
+git add a.html
+git add b.html
+git commit -m "Changes for a and b"
+git add c.html
+git commit -m "Unrelated change to c"
+Separating staging and committing, you get the chance to easily customize what goes into a commit.
+repository-In Git, the repository is like a data structure used by VCS to store metadata for a set of files and directories. It contains the collection of the files as well as the history of changes made to those files. Repository in Git is considered as your project folder. A repository has all the project-related data. 
+ 
+remote repository-To be able to collaborate on any Git project, you need to know how to manage your remote repositories. Remote repositories are versions of your project that are hosted on the Internet or network somewhere. You can have several of them, each of which generally is either read-only or read/write for you.To add a new remote, use the git remote add command on the terminal, in the directory your repository is stored at. The git remote add command takes two arguments: A remote name, for example, origin.
+
+Q : can you draw how documents move from one stage to another?
+ 
+
+Q: How to initialize a directory to be tracked by Git?
+Ans: In order to begin tracking a new file .you use to command git add. to begin tracking thr README file .you can run this.
+$git add README
+  if you run the status command again ,you can see that your README file is now tracked and staged:
+$git status 
+#on branch master
+#change to be committed:
+#(use "git reset HEAD <file>...." to unstage )
+#
+#new file :README 
+#
+you can tell that its staged bez it under the "changes to be committed "heading .if you commit at this point ,the version of the file at the time you ran git add is what will be in the historical sanpshot .you may recall thet when you ran git init eariler, you then ran git add (files)-that was to begain tracking files in youer directory .the git add command takes a path name for either a file or a diarectory ; if it a directory thr command adds all the files in that directory recursively.
+Q: what does the git status do?
+Ans : The main tool you use th determine which file are in which state is the git status command .if you run this command directly afer a clone you should see something like this:
+$git status 
+#on branch master nothing to commit (working directory clean)
+this means you have a clean working diarectory -in other words there are no tracked and modified files. git also  doesnt see any untracked files ,or they would br listed here .finally ,the command ttell you which branch youre on .for now that is alwayes master ,which is the default .you wount worry about it here .the next chapter will go over branches and refernces in detail .
+        let say you add  a new file to project a simple README file ,if th file didnt exist before and you run git status ,you see your untracked file like so:
+$vim README
+$git status
+#on branch master
+#untracked file :
+#(use "git add <file>..."to include in what will be committed )
+#
+#README 
+nothing added to commit but untracked file present (use "git add" to track)
+      you can see that new README file is untracked bez it under the"untracked file " heading in your status output
+
+Q :what does git log do?
+Ans :The git log command displays a record of the commits in a Git repository. By default, the git log command displays a commit hash, the commit message, and other commit metadata. You can filter the output of git log using various options.
+Version control systems have one core purpose—to record how your codebase evolves over time. This allows you to see how your projects have progressed. You can find out who has contributed to your project and identify what changes have been made to your code and when.
+But how do you actually view the history your Git repository creates? That’s where the git log command can be helpful.
+This tutorial will discuss, with examples, the basics of the git log command and how you can use it to inspect a Git repository.
+The git log Command:
+The git log command shows a list of all the commits made to a repository. You can see the hash of each Git commit, the message associated with each commit, and more metadata. This command is useful for displaying the history of a repository.
+Whereas the git status command is focused on the current working directory, git log allows you to see the history of your repository.
+git log Command Example:
+Let’s walk through an example to illustrate how the git log command works. We have been working on a repository called “demo-repository”. Now we want to see a list of all the commits we have pushed to our repository. To do so, we can use this command:
+$ git log
+The git log command returns a list of all commits made in a repository. Here’s an example of a single commit returned by this command:
+
+commit 43433c674e3d6c86a889fad222dae179785893cf (HEAD -> master, origin/master, origin/HEAD)
+Author: James Gallagher <37276661+jamesgallagher432@users.noreply.github.com>
+Date:   Tue Apr 7 13:09:58 2020 +0100
+    Update index.html
+
+Q : what does git add do ?
+Ans :git-add - Add file contents to the index.
+This command updates the index using the current content found in the working tree, to prepare the content staged for the next commit. It typically adds the current content of existing paths as a whole, but with some options it can also be used to add content with only part of the changes made to the working tree files applied, or remove paths that do not exist in the working tree anymore.
+The "index" holds a snapshot of the content of the working tree, and it is this snapshot that is taken as the contents of the next commit. Thus after making any changes to the working tree, and before running the commit command, you must use the add command to add any new or modified files to the index.
+This command can be performed multiple times before a commit. It only adds the content of the specified file(s) at the time the add command is run; if you want subsequent changes included in the next commit, then you must run git add again to add the new content to the index.
+The git status command can be used to obtain a summary of which files have changes that are staged for the next commit.
+The git add command will not add ignored files by default. If any ignored files were explicitly specified on the command line, git add will fail with a list of ignored files. Ignored files reached by directory recursion or filename globbing performed by Git (quote your globs before the shell) will be silently ignored. The git add command can be used to add ignored files with the -f (force) option.
+Please see git-commit[1] for alternative ways to add content to a commit.
+
+Q: what does git commit do?
+Ans: git-commit - Record changes to the repository
+The "commit" command is used to save your changes to the local repository.
+Note that you have to explicitly tell Git which changes you want to include in a commit before running the "git commit" command. This means that a file won't be automatically included in the next commit just because it was changed. Instead, you need to use the "git add" command to mark the desired changes for inclusion.
+Also note that in Git (not like in Subversion), a commit is not automatically transferred to the remote server. Using the "git commit" command only saves a new commit object in the local Git repository. Exchanging commits has to be performed manually and explicitly (with the "git fetch", "git pull", and "git push" commands).
+For a basic workflow, you can use the "git add" command to stage changes for the next commit. The actual commit command will then wrap up the mentioned changes in a new commit object:
+git add index.html css/styles.css
+git commit -m "Change titles and styling on homepage"
+If you have lots of changed files in your working copy - and want all of them included in the next commit - you can make use of the "-a" parameter and thereby omit the "git add" step:
+git commit -a -m "Change titles and styling on homepage"
+The "--amend" option comes in handy, for example, when you mistyped the last commit's message or forgot to add a change. The following example will correct the very last commit by overwriting its message and adding another change:
+git add forgotten-change.js
+git commit --amend -m "New commit message"
+
+Q: How to push file to remote repository?
+Ans:
+When you want to share a branch with the world, you need to push it up to a remote to which you have write access. Your local branches aren’t automatically synchronized to the remotes you write to — you have to explicitly push the branches you want to share. That way, you can use private branches for work you don’t want to share, and push up only the topic branches you want to collaborate on.
+If you have a branch named serverfix that you want to work on with others, you can push it up the same way you pushed your first branch. Run git push <remote> <branch>:
+$ git push origin serverfix
+Counting objects: 24, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (15/15), done.
+Writing objects: 100% (24/24), 1.91 KiB | 0 bytes/s, done.
+Total 24 (delta 2), reused 0 (delta 0)
+To https://github.com/schacon/simplegit
+ * [new branch]      serverfix -> serverfix
+This is a bit of a shortcut. Git automatically expands the serverfix branchname out to refs/heads/serverfix:refs/heads/serverfix, which means, “Take my serverfix local branch and push it to update the remote’s serverfix branch.” We’ll go over the refs/heads/ part in detail in Git Internals, but you can generally leave it off. You can also do git push origin serverfix:serverfix, which does the same thing — it says, “Take my serverfix and make it the remote’s serverfix.” You can use this format to push a local branch into a remote branch that is named differently. If you didn’t want it to be called serverfix on the remote, you could instead run git push origin serverfix:awesomebranch to push your local serverfix branch to the awesomebranch branch on the remote project
+
+Q: why do you need branching ?
+Ans: This depends on your workflow. What you seem to be describing is this workflow:
+Alice makes a branch alice that tracks master and Bob makes a bob branch that also tracks master. Alice always commits to alice and Bob always commits to bob. Then when they are happy with their changes they merge into master.
+Of course, there is hardly any difference from this and from Alice and Bob working on their local master branches!
+The problem often comes in when the same person is working on multiple features at the same time. For example
+Alice is working on Feature A and Bob is working on Feature B. Alice is halfway done with Feature A and has made a few commits in alice. However, Feature A is quite hard to implement so Alice decides that she should rather work on Feature C and makes a few commits onto alice. Bob finished Feature B and decides that he would like to tackle Feature A and so pulls aliceinto bob.
+After Bob finishes Feature A he would like to merge bob into master. However, bob now contains Feature A, Feature B and parts of Feature C, but Feature C is not ready to be merged! It's easy to see that a workflow like this can lead to many confusing merge conflicts.
+The trick is that instead of having personal branches one should have feature branches. Alice should have a branch for Feature A and Feature C and Bob should have a branch for Feature Band Feature A. That way they both can work on different features without tramping on each other's toes.
+source: StackOverflow
+
+Q :which command is uesed to creat branch?
+Ans : git branch command can be used to create a new branch. When you want to start a new feature, you create a new branch off main using git branch new_branch . Once created you can then use git checkout new_branch to switch to that branch.
+Git makes creating and managing branches very easy. In fact, the power and flexibility of its branching model is one of the biggest advantages of Git!
+There are a couple of different use cases when creating branches in Git. Let's look at each of them in turn.
+To create a new branch that is based on your currently checked out (HEAD) branch, simply use "git branch" with the name of the new branch as the only parameter:
+$ git branch <new-branch>
+If you want to base your new branch on a different existing branch, simply add that branch's name as a starting point:
+$ git branch <new-branch> <base-branch>
+
+Q: what does checkout means?
+Ans :
+In Git terms, a "checkout" is the act of switching between different versions of a target entity. The git checkout command operates upon three distinct entities: files, commits, and branches. ... In the Undoing Changes topic, we saw how git checkout can be used to view old commits.
+This page is an examination of the git checkout command. It will cover usage examples and edge cases. In Git terms, a "checkout" is the act of switching between different versions of a target entity. The git checkout command operates upon three distinct entities: files, commits, and branches. In addition to the definition of "checkout" the phrase "checking out" is commonly used to imply the act of executing the git checkout command. In the Undoing Changes topic, we saw how git checkout can be used to view old commits. The focus for the majority of this document will be checkout operations on branches.
+Checking out branches is similar to checking out old commits and files in that the working directory is updated to match the selected branch/revision; however, new changes are saved in the project history—that is, it’s not a read-only operation.
+
+Q: How to delete  branch?
+Ans :It is common for a Git repo to have different branches. They are a great way to work on different features and fixes while isolating the new code from the main codebase.
+Repos often have a main branch for the main codebase and developers create other branches to work on different features.
+Once work is completed on a feature, it is often recommended to delete the branch.
+Deleting a branch LOCALLY:-
+Git will not let you delete the branch you are currently on so you must make sure to checkout a branch that you are NOT deleting. For example: git checkout main
+Delete a branch with git branch -d <branch>.
+For example: git branch -d fix/authentication
+The -d option will delete the branch only if it has already been pushed and merged with the remote branch. Use -D instead if you want to force the branch to be deleted, even if it hasn't been pushed or merged yet.
+The branch is now deleted locally.
+Deleting a branch REMOTELY:-
+Here's the command to delete a branch remotely: git push <remote> --delete <branch>.
+For example: git push origin --delete fix/authentication
+The branch is now deleted remotely.
+You can also use this shorter command to delete a branch remotely: git push <remote> :<branch>
+For example: git push origin :fix/authentication
+If you get the error below, it may mean that someone else has already deleted the branch.
+
+Q:Why we create pull request?
+Ans: Pull requests are a feature that makes it easier for developers to collaborate using Bitbucket. They provide a user-friendly web interface for discussing proposed changes before integrating them into the official project.When you file a pull request, all you’re doing is requesting that another developer (e.g., the project maintainer) pulls a branch from your repository into their repository. This means that you need to provide 4 pieces of information to file a pull request: the source repository, the source branch, the destination repository, and the destination branch.
+Git Workflows: Pull Requests
+Many of these values will be set to a sensible default by Bitbucket. However, depending on your collaboration workflow, your team may need to specify different values. The above diagram shows a pull request that asks to merge a feature branch into the official main branch, but there are many other ways to use pull requests.
+Q : why we do review ?
+Ans:The best way to improve your Git code review workflow is to use the right tools. Here are some things to keep in mind if you want to improve your workflow.
+Require Code Reviews Before Merging Changes
+To protect your project, you’ll want to require code reviews before merging changes. 
+And you’ll want to come up with naming conventions for branches that developers create, so others on the team can identify them easily. When a developer is ready to merge a branch into the master branch, they can request a merge.
+Before the merge goes into the Master, one or more reviewers will examine the changes in the code review interface. Once they are done reviewing, then the changes will be merged into the Master. At this point, the developer’s branch may be deleted. Or they will continue to work in that branch. It depends on your workflow.
+Make Reviews Accessible to Global Teams
+Over-the-shoulder reviews work great when an entire development team is in the room together. But that type of code review doesn’t work for teams spread around the world.
+Using a code review tool makes it easier for teams around the globe to participate in code reviews. Even if you’re working in different time zones.
+Set Up an Effective Workflow
+Setting up an effective workflow is key. Especially if you’re dealing with a large, distributed team. Things can quickly get out of control with multiple developers and 100s of commits a day.
+Here’s a quick walkthrough of how the Git code review workflow works in Helix TeamHub:
+Sign up for Helix TeamHub and set up a Git repository.
+Create a feature branch.
+Add a new code review.
+Check the details of the code review.
+Review changes.
+Follow the status on the discussion tab.
+
+Q: when and who merge the pull request ?
+Ans:In a pull request, you propose that changes you've made on a head branch should be merged into a base branch. By default, any pull request can be merged at any time, unless the head branch is in conflict with the base branch. However, there may be restrictions on when you can merge a pull request into a specific branch. For example, you may only be able to merge a pull request into the default branch if required status checks are passing. For more information, see "About protected branches."
+You can configure a pull request to merge automatically when all merge requirements are met. For more information, see "Automatically merging a pull request."
+If the pull request has merge conflicts, or if you'd like to test the changes before merging, you can check out the pull request locally and merge it using the command line.
+You can't merge a draft pull request. For more information about draft pull requests, see "About pull requests."
+The repository may be configured so that the head branch for a pull request is automatically deleted when you merge a pull request. For more information, see
+
+
